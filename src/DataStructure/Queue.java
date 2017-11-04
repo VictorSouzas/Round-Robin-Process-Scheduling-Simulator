@@ -1,11 +1,11 @@
 package DataStructure;
 
-public class DoublyLinkedList<T> {
+public class Queue<T> {
     private Node start;
     private Node end;
     private int size;
 
-    public DoublyLinkedList() {
+    public Queue() {
         this.start = null;
         this.end = null;
         this.size = 0;
@@ -29,8 +29,8 @@ public class DoublyLinkedList<T> {
         size++;
     }
 
-    public void add(T value, T beforeObject){
-        
+    public T remove(){
+
     }
 
     public boolean isEmpty(){

@@ -2,10 +2,10 @@ package DataStructure;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DoublyLinkedListTest {
+class QueueTest {
     @org.junit.jupiter.api.Test
     void add() {
-        DoublyLinkedList list = new DoublyLinkedList();
+        Queue list = new Queue();
         list.add(2);
         assertEquals(1, list.getSize());
         list.add(3);
