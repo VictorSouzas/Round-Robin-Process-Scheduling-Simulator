@@ -19,10 +19,10 @@ public class Generate {
     }
 
     private static Queue generateIoQueue(int duration){
-        Queue queue = new Queue(Math.random() * duration);
+        Queue queue = new Queue((int) (Math.random() * duration));
         for (int i = 0; i < duration; i++)
             if(Math.random() < 0.5)
-                queue.add(Math.random() * duration);
+                queue.add((int) (Math.random() * duration));
         return queue;
     }
 
