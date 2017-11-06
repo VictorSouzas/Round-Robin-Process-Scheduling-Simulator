@@ -21,6 +21,8 @@ public class Queue<T> {
     }
 
     public void add(T value){
+        if(search(value))
+            return;
         Node newNode = new Node(value);
         if(isEmpty()){
             this.first = this.last = newNode;
