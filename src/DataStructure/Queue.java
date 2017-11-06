@@ -42,7 +42,7 @@ public class Queue<T> {
 
     public boolean search(T value){
         Node aux = this.first;
-        for (int i = 0; i <= getSize(); i++){
+        for (int i = 0; i < getSize(); i++){
             if (aux.getValue() == value)
                 return true;
             aux = aux.getNext();
