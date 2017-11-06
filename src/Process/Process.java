@@ -9,15 +9,15 @@ public class Process {
     private Queue output;
     private Queue IO;
 
-    public Process(int pid, int duration, int arrival) {
+    public Process(int pid, int duration) {
         this.pid = pid;
         this.duration = duration;
-        this.input = new Queue();
+        this.input = new Queue((int) Math.random() * 50);
         this.output = new Queue();
     }
 
-    public Process(int pid, int duration, int arrival, Queue IO){
-        this(pid, duration, arrival);
+    public Process(int pid, int duration, Queue IO){
+        this(pid, duration);
         this.IO = IO;
     }
 
