@@ -32,9 +32,11 @@ public class Queue<T> {
         if(this.first == this.last){
             this.last = newNode;
             this.first.setNext(this.last);
+            this.last.setPrevious(this.first);
             size++;
             return;
         }
+        newNode.setPrevious(this.last);
         this.last.setNext(newNode);
         this.last = newNode;
         size++;
