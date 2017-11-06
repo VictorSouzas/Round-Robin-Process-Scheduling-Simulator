@@ -5,7 +5,6 @@ import DataStructure.Queue;
 public class Process {
     private int pid;
     private int duration;
-    private int arrival;
     private Queue input;
     private Queue output;
     private Queue IO;
@@ -13,7 +12,6 @@ public class Process {
     public Process(int pid, int duration, int arrival) {
         this.pid = pid;
         this.duration = duration;
-        this.arrival = arrival;
         this.input = new Queue();
         this.output = new Queue();
     }
@@ -29,10 +27,6 @@ public class Process {
 
     public int getDuration() {
         return duration;
-    }
-
-    public int getArrival() {
-        return arrival;
     }
 
     public Queue getIO() {
