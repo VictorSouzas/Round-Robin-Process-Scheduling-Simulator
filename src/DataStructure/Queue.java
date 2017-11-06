@@ -21,14 +21,14 @@ public class Queue<T> {
     }
 
     public void add(T value){
-        if(search(value))
-            return;
         Node newNode = new Node(value);
         if(isEmpty()){
             this.first = this.last = newNode;
             size++;
             return;
         }
+        if(search(value))
+            return;
         if(this.first == this.last){
             this.last = newNode;
             this.first.setNext(this.last);
@@ -42,7 +42,7 @@ public class Queue<T> {
 
     public boolean search(T value){
         Node aux = this.first;
-        for (int i = 0; i != getSize(); i++){
+        for (int i = 0; i <= getSize(); i++){
             if (aux.getValue() == value)
                 return true;
             aux = aux.getNext();
