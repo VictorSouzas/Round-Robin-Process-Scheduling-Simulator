@@ -1,17 +1,33 @@
 package DataStructure;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class QueueTest {
-    @org.junit.jupiter.api.Test
+
+    protected Queue dependency;
+
+    public QueueTest() {
+        this.dependency = new Queue();
+    }
+
+    @Test
     void add() {
-        Queue list = new Queue();
-        list.add(2);
-        assertEquals(1, list.getSize());
-        list.add(3);
-        assertEquals(2, list.getSize());
-        list.add(4);
-        assertEquals(3, list.getSize());
+        dependency.add(2);
+        assertEquals(1, dependency.getSize());
+        dependency.add(3);
+        assertEquals(2, dependency.getSize());
+        dependency.add(4);
+        assertEquals(3, dependency.getSize());
+    }
+
+    @Test
+    void remove(){
+        dependency.add(2);
+        dependency.add(3);
+        dependency.add(4);
+        assertEquals(2, dependency.remove());
     }
 
 }

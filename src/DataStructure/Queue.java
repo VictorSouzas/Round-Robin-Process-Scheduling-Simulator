@@ -1,36 +1,52 @@
 package DataStructure;
 
 public class Queue<T> {
-    private Node start;
-    private Node end;
+    private Node first;
+    private Node last;
     private int size;
 
     public Queue() {
-        this.start = null;
-        this.end = null;
+        this.first = null;
+        this.last = null;
         this.size = 0;
+    }
+
+    public T getFirst() {
+        return (T) first.getValue();
     }
 
     public void add(T value){
         Node newNode = new Node(value);
         if(isEmpty()){
-            this.start = this.end = newNode;
+            this.first = this.last = newNode;
             size++;
             return;
         }
-        if(this.start == this.end){
-            this.end = newNode;
-            this.start.setNext(this.end);
+        if(this.first == this.last){
+            this.last = newNode;
+            this.first.setNext(this.last);
             size++;
             return;
         }
-        this.end.setNext(newNode);
-        this.end = newNode;
+        this.last.setNext(newNode);
+        this.last = newNode;
         size++;
     }
 
-    public T remove(){
+    public boolean search(T value){
+        Node aux = this.first;
+        for (int i = 0; i != getSize(); i++){
+            if (aux.getValue() == value)
+                return true;
+            aux = aux.getNext();
+        }
+        return false;
+    }
 
+    public T remove(){
+        Node newNode = this.first;
+        this.first = this.first.getNext();
+        return (T) newNode.getValue();
     }
 
     public boolean isEmpty(){
