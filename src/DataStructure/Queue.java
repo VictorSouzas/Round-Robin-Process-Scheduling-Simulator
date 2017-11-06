@@ -11,6 +11,11 @@ public class Queue<T> {
         this.size = 0;
     }
 
+    public Queue(T value) {
+        this();
+        add(value);
+    }
+
     public T getFirst() {
         return (T) first.getValue();
     }
