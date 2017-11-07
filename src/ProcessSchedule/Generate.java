@@ -1,6 +1,7 @@
 package ProcessSchedule;
 
 import DataStructure.Queue;
+import Sorting.QuickInteger;
 import Process.Process;
 
 public class Generate {
@@ -13,17 +14,18 @@ public class Generate {
                 queue.add(new Process(i,duration));
                 continue;
             }
-            queue.add(new Process(i,duration, Generate.generateIoQueue(duration)));
+            queue.add(new Process(i,duration, Generate.generateIoVector(duration)));
         }
         return queue;
     }
 
-    private static Queue generateIoQueue(int duration){
-        Queue queue = new Queue((int) (Math.random() * duration));
-        for (int i = 0; i < duration; i++)
+    private static int[] generateIoVector(int duration){
+        int[] vector = new int[(int) (Math.random() * duration % 10)];
+        for (int i = 0; i < vector.length; i++)
             if(Math.random() < 0.5)
-                queue.add((int) (Math.random() * duration));
-        return queue;
+                vector[i] = (int) (Math.random() * duration);
+        QuickInteger quickInteger = new QuickInteger(vector);
+        return quickInteger.getVector();
     }
 
 }
