@@ -20,6 +20,9 @@ public class Process {
         this(pid, duration);
         this.IO = IO;
     }
+    public void subtractDuration(int value){
+        this.duration = this.duration - value;
+    }
 
     public int getPid() {
         return pid;
