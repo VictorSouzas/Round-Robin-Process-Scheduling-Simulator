@@ -1,11 +1,10 @@
 package ProcessSchedule;
 
+import DataStructure.Queue;
+
 public class RobinRound {
     public static void main(String[] args) {
-        int time = 0;
-        while(true){
+        Queue waitingQueue = Generate.process(Integer.parseInt(args[0]));
 
-            time++;
-        }
     }
 }
