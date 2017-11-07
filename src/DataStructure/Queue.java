@@ -55,6 +55,7 @@ public class Queue<T> {
     public T remove(){
         Node newNode = this.first;
         this.first = this.first.getNext();
+        this.size--;
         return (T) newNode.getValue();
     }
 
