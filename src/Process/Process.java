@@ -7,7 +7,7 @@ public class Process {
     private int duration;
     private Queue input;
     private Queue output;
-    private Queue IO;
+    private int[] IO;
 
     public Process(int pid, int duration) {
         this.pid = pid;
@@ -16,7 +16,7 @@ public class Process {
         this.output = new Queue();
     }
 
-    public Process(int pid, int duration, Queue IO){
+    public Process(int pid, int duration, int[] IO){
         this(pid, duration);
         this.IO = IO;
     }
@@ -29,7 +29,7 @@ public class Process {
         return duration;
     }
 
-    public Queue getIO() {
+    public int[] getIO() {
         return IO;
     }
 
