@@ -16,4 +16,10 @@ public class Event {
         }
         return newQueue;
     }
+
+    public static Process remove(Process process, int quantum, int time){
+        process.getOutput().add(time);
+        process.subtractDuration(quantum);
+        return process;
+    }
 }
