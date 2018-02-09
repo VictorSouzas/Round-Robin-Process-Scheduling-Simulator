@@ -16,8 +16,8 @@ public class Queue<T> {
         add(value);
     }
 
-    public T getFirst() {
-        return (T) first.getValue();
+    public Node getFirst() {
+        return first;
     }
 
     public void add(T value){
@@ -53,6 +53,10 @@ public class Queue<T> {
     }
 
     public T remove(){
+        if(!this.isEmpty()){
+            this.last = null;
+            return null;
+        }
         Node newNode = this.first;
         this.first = this.first.getNext();
         this.size--;

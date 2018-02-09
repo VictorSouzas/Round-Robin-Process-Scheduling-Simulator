@@ -8,7 +8,7 @@ public class Event {
         Queue newQueue = new Queue();
         for (int i = 0; i < size; i++){
             Process process = (Process) processQueue.remove();
-            if((int) process.getInput().getFirst() == time){
+            if((int) process.getInput().getFirst().getValue() == time){
                 newQueue.add(process);
                 continue;
             }

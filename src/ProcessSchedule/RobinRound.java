@@ -23,7 +23,7 @@ public class RobinRound {
     }
     private void Scheduler() {
         this.count = 0;
-        do {
+        while(!processQueue.isEmpty() || !waitingQueue.isEmpty()) {
             if(this.executionProcess != null)
                 if(CheckRemoveEvents())
                     remove();
@@ -38,12 +38,12 @@ public class RobinRound {
 
             this.count++;
             this.time++;
-        } while(!(processQueue.isEmpty() && waitingQueue.isEmpty()));
+        }
     }
 
     private boolean CheckRemoveEvents() {
-        if(this.count == this.quantum){
-            Event.remove(this.executionProcess, quantum, this.time);
+        if(this.count >= this.quantum){
+            Event.remove(this.executionProcess, this.quantum, this.time);
             return true;
         }
         if(this.executionProcess.getIO() != null && checkIO()){
@@ -71,10 +71,10 @@ public class RobinRound {
     }
 
     private boolean checkIO(){
-        for (int i = 0; i <= this.executionProcess.getIO().length-1; i++)
+        /*for (int i = 0; i <= this.executionProcess.getIO().length-1; i++)
             if(this.executionProcess.getDuration() == this.executionProcess.getIO()[i])
-                return true;
-        return false;
+                return true;*/
+        return true;
     }
 
     public Queue getProcessedQueue() {

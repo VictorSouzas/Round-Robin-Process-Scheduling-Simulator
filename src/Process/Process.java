@@ -5,19 +5,19 @@ import DataStructure.Queue;
 public class Process {
     private int pid;
     private int duration;
-    private Queue input;
-    private Queue output;
+    private Queue<Integer> input;
+    private Queue<Integer> output;
     private int[] IO;
 
-    public Process(int pid, int duration) {
+    public Process(int pid, int duration, int input) {
         this.pid = pid;
         this.duration = duration;
-        this.input = new Queue((int) Math.random() * 50);
+        this.input = new Queue(input);
         this.output = new Queue();
     }
 
-    public Process(int pid, int duration, int[] IO){
-        this(pid, duration);
+    public Process(int pid, int duration, int input,int[] IO){
+        this(pid, duration, input);
         this.IO = IO;
     }
     public void subtractDuration(int value){
